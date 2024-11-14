@@ -18,7 +18,7 @@ def login(name,password):
         print("-"*50)
         
 def register(name,password):
-    file = open("logindatabase.txt","a")
+    file = open("./cli/data/logindatabase.txt","a")
     file.write("\n"+name+","+password)
 def access(option):
     global name
@@ -35,9 +35,9 @@ def access(option):
 
 def begin():
     global option
-    print("="*45)
-    print(" |  Selamat datang di Taman Biru  |")
-    print("="*45)
+    print("─"*45)
+    print("│       Selamat datang di Taman Biru        │")
+    print("─"*45)
     option = input(" apakah sudah memiliki akun? (iya/tidak): ")
     if(option!="iya" and option!="tidak"):
         begin()
