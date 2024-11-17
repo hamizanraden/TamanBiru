@@ -18,8 +18,13 @@ def display_komentar ():
 
 
 while True:
-    print("\nPilih opsi:")
-    print("1. Tambahkan komentar")
+    print("   ._____________________.")
+    print("   |      POSTINGAN      |")
+    print("   |        (´◡`)        |")
+    print("   |                     |")
+    print("   |_1_2_3_______________|")
+
+    print("\n1. Tambahkan komentar")
     print("2. Lihat komentar")
     print("3. Keluar")
 
