@@ -1,7 +1,7 @@
 # run.py
 
-from cli.auth.login import access_login
-from cli.auth.register import access_register
+from auth.login import access_login
+from auth.register import access_register
 
 # tampilan awal aplikasi
 def main():

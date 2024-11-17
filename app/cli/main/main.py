@@ -1,6 +1,6 @@
 # main.py
 
-from cli.chat.message import access_message
+
 
 # tampilan halaman utama aplikasi
 def start_lobby():
@@ -22,7 +22,7 @@ def start_lobby():
 
 # kondisional untuk memilih menu
         if masuk == '1' or masuk == 'Chat All'.lower:
-            access_message('start_message')
+            print('start_message')
             break
         elif masuk == '2' or masuk == 'Program Studi'.lower:
             print('Program Studi')
