@@ -1,5 +1,5 @@
 # Fitur Komentar belum digabung dengan data base
-
+komentar = []
 def tambah_komentar (komen):
     if komen:
         komentar.append(komen)
