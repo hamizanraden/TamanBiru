@@ -1,7 +1,5 @@
 # Fitur Komentar belum digabung dengan data base
 
-komentar =[]
-
 def tambah_komentar (komen):
     if komen:
         komentar.append(komen)
@@ -18,11 +16,11 @@ def display_komentar ():
 
 
 while True:
-    print("   ._____________________.")
+    print("   ┌─────────────────────┐")
     print("   |      POSTINGAN      |")
     print("   |        (´◡`)        |")
     print("   |                     |")
-    print("   |_1_2_3_______________|")
+    print("   └1─2─3────────────────┘")
 
     print("\n1. Tambahkan komentar")
     print("2. Lihat komentar")
