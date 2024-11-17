@@ -13,21 +13,3 @@ def display_reply():
             print (f"Reply {i}: {reply}")
     else:
         print("No messages to display")
-
-while True:
-    print ("\n 1. Lihat Komentar")
-    print ("2. Tambahkan komentar")
-    print ("3. Keluar")
-
-    memilih= input ("Masukan pilihan: ")
-
-    if memilih == "1":
-        user_reply = input("Masukan komentar: ")
-        reply_message(user_reply)
-    elif memilih == "2":
-        display_reply()
-    elif memilih == "3":
-        print("Terima kasih telah menggunakan aplikasi ini")
-        break
-    else:
-        print("Pilihan tidak tersedia")

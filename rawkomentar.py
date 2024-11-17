@@ -1,5 +1,4 @@
-
-import message
+message = []
 
 def tambah_balasan (balas):
     if balas:
