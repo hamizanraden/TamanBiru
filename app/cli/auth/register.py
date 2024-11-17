@@ -2,7 +2,7 @@ from auth.login import access_login
 
 def start_register(name, password):
     try:
-        with open('./app/data/logindatabase.txt', 'a') as file:  # Ubah nama file ke logindatabase.txt
+        with open('./app/cli/data/logindatabase.txt', 'a') as file:  # Ubah nama file ke logindatabase.txt
             file.write(f"{name},{password}\n")
         print('Registrasi Berhasil')
     except Exception as e:
@@ -17,7 +17,7 @@ def access_register(option):
             if name and password:
                 # Cek apakah username sudah ada
                 try:
-                    with open('./app/data/logindatabase.txt', 'r') as file:  # Ubah nama file ke logindatabase.txt
+                    with open('./app/cli/data/logindatabase.txt', 'r') as file:  # Ubah nama file ke logindatabase.txt
                         existing_users = [line.split(',')[0] for line in file]
                         if name in existing_users:
                             print("Username sudah terdaftar. Silahkan ke menu Login")

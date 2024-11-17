@@ -5,7 +5,7 @@ from main.main import start_lobby
 def start_login(name, password):
     sukses = False
     try:
-        with open('./app/data/logindatabase.txt', 'r') as file:
+        with open('./app/cli/data/logindatabase.txt', 'r') as file:
             for line in file:
                 a, b = line.strip().split(',')  # Menggunakan strip() untuk menghapus whitespace
                 if a == name and b == password:
