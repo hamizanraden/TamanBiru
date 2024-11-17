@@ -20,7 +20,7 @@ def display_komentar ():
 while True:
     print("\nPilih opsi:")
     print("1. Tambahkan komentar")
-    print("2. Lihat semua komentar")
+    print("2. Lihat komentar")
     print("3. Keluar")
 
     memilih = input("Masukkan pilihan: ")
