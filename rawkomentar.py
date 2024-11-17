@@ -1,5 +1,5 @@
 
-from chat.message import message
+import message
 
 def tambah_balasan (balas):
     if balas:
