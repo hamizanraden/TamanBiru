@@ -1,16 +1,17 @@
-# Fitur Komentar belum digabung dengan data base
-komentar = []
-def tambah_komentar (komen):
-    if komen:
-        komentar.append(komen)
+
+from chat.message import message
+
+def tambah_balasan (balas):
+    if balas:
+        message.append(balas)
         print ("anda telah menambahkan komentar")
     else:
         print ("Tidak ada komentar")
 
-def display_komentar ():
-    if komentar:
-        for i, komen in enumerate (komentar, 1):
-            print (f"{i}. {komen}")
+def display_balasan ():
+    if message:
+        for i, balas in enumerate (message, 1):
+            print (f"{i}. {balas}")
     else:
         print ("Kosong")
 
@@ -18,21 +19,21 @@ def display_komentar ():
 while True:
     print("   ┌─────────────────────┐")
     print("   |      POSTINGAN      |")
-    print("   |        (´◡`)        |")
+    print("   |                     |")
     print("   |                     |")
     print("   └1─2─3────────────────┘")
 
-    print("\n1. Tambahkan komentar")
-    print("2. Lihat komentar")
+    print("\n1. Reply postingan")
+    print("2. Lihat reply")
     print("3. Keluar")
 
     memilih = input("Masukkan pilihan: ")
 
     if memilih == '1':
-        user_comment = input("Masukkan komentar Anda: ")
-        tambah_komentar(user_comment)
+        user_comment = input("Masukkan reply Anda: ")
+        tambah_balasan(user_comment)
     elif memilih == '2':
-        display_komentar()
+        display_balasan()
     elif memilih == '3':
         break
     else:
