@@ -15,12 +15,6 @@ def display_reply():
         print("No messages to display")
 
 while True:
-    print("   ┌─────────────────────┐")
-    print("   |      POSTINGAN      |")
-    print("   |                     |")
-    print("   |                     |")
-    print("   └1─2─3────────────────┘")
-
     print ("\n 1. Lihat Komentar")
     print ("2. Tambahkan komentar")
     print ("3. Keluar")
