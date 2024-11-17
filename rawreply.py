@@ -1,9 +1,9 @@
-from chat.message import Chat
+from chat import Chat
 
 def reply():
     sender = input("Nama pengirim: ")
     message = input("Masukkan pesan: ")
-    chat = chat(sender, message)
+    chat = Chat(sender, message)
 
     while True:
         add_more = input("Apakah ingin menambahkan balasan? (y/n): ").strip().lower()
@@ -13,3 +13,8 @@ def reply():
             chat.add_reply(reply_pengirim, reply_pesan) 
         else:
             break
+
+    print("\nPercakapan:")
+    chat.display_pesan()
+
+
