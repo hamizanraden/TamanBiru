@@ -2,7 +2,7 @@ from chat.message import Chat
 
 def reply():
     sender = input("Nama pengirim: ")
-    message = input("Masukkan pesan: ")
+    message = input("Masukkan pesan/balasan: ")
     chat = chat(sender, message)
 
     while True:
