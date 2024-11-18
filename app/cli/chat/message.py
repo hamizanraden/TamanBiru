@@ -1,13 +1,14 @@
+
 class Chat:
-    def __init__(self, pengirim, pesan, balasan=None):
-        self.sender = pengirim
-        self.message = pesan
-        self.replies = balasan if balasan else []
+    def __init__(self, sender, message, replies=None):
+        self.sender = sender
+        self.message = message
+        self.replies = replies if replies else []
 
-    def add_reply(self,pengirim, pesan):
-        self.replies.append(Chat(pengirim, pesan))
+    def add_reply(self, sender, reply):
+        self.replies.append(Chat(sender, reply))
 
-    def display_pesan(self, indent=0):
-        print(" "* indent + f"[{self.sender}]: {self.message}")
+    def display_pesan(self, spasi=0):
+        print(' ' * spasi + f"[{self.sender}]: {self.message}")
         for reply in self.replies:
-            reply.display_pesan(indent + 4)
+            reply.display_pesan(spasi + 4)
