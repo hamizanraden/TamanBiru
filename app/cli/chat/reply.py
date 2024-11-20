@@ -4,7 +4,7 @@ from chat.message import Chat
 
 def reply():
     pengirim = input("Masukkan nama pengirim: ")
-    pesan = input("Masukkan pertanyaan: ")
+    pesan = input("Masukkan pesan: ")
     chat = Chat(pengirim, pesan)
 
     while True:
