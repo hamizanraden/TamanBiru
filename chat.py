@@ -1,4 +1,3 @@
-
 class Chat:
     def __init__(self, sender, message, replies=None):
         self.sender = sender
