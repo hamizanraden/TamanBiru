@@ -20,7 +20,7 @@ class Chat:
                                  reply.save_to_file(chat_database)
     
 
-@staticmethod
+
 def load_from_file(): # mengambil data dari file
     chats = []
     with open ('app/cli/data/chat_database.txt', 'r') as file:

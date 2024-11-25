@@ -2,7 +2,8 @@
 
 from chat.message import Chat
 
-Chat.display_pesan()
+Chat.load_from_file()
+
 def reply():
     pengirim = input("Masukkan nama pengirim: ")
     pesan = input("Masukkan pesan: ")
