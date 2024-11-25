@@ -19,23 +19,21 @@ class Chat:
                            for reply in self.replies:
                                  reply.save_to_file(chat_database)
     
-
-
-def load_from_file(): # mengambil data dari file
-    chats = []
-    with open ('app/cli/data/chat_database.txt', 'r') as file:
-        lines = file.readlines()
-        current_chat = None
-        for line in lines:
-            if line:
-                if line.startswith("[") and line.endswith("]"):
-                    if current_chat:
-                        chats.append(current_chat)
-                    sender_message = line [1:-2].split("]: ")
-                    current_chat = Chat(sender_message[0], sender_message[1])
-                else:
-                    if current_chat:
-                        current_chat.add_reply("ReplySender", line)
-        if current_chat:
-            chats.append(current_chat)
-    return chats
+    def load_from_file(): # mengambil data dari file
+        chats = []
+        with open ('app/cli/data/chat_database.txt', 'r') as file:
+            lines = file.readlines()
+            current_chat = None
+            for line in lines:
+                if line:
+                    if line.startswith("[") and line.endswith("]"):
+                        if current_chat:
+                            chats.append(current_chat)
+                        sender_message = line [1:-2].split("]: ")
+                        current_chat = Chat(sender_message[0], sender_message[1])
+                    else:
+                        if current_chat:
+                            current_chat.add_reply("ReplySender", line)
+            if current_chat:
+                chats.append(current_chat)
+        return chats
