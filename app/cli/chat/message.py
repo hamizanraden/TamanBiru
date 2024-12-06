@@ -1,39 +1,31 @@
+import os
 
-class Chat:
-    def __init__(self, sender, message, replies=None):
-        self.sender = sender
-        self.message = message
-        self.replies = replies if replies else []
+# Nama folder dan file untuk menyimpan riwayat chat
+CHAT_FOLDER = os.path.join("app", "cli", "data")
+CHAT_DATABASE = os.path.join(CHAT_FOLDER, "databasechat.txt")
 
-    def add_reply(self, sender, reply):
-        self.replies.append(Chat(sender, reply))
+def ensure_chat_folder_exists():
+    """Memastikan folder untuk menyimpan file chat ada."""
+    if not os.path.exists(CHAT_FOLDER):
+        os.makedirs(CHAT_FOLDER)
 
-    def display_pesan(self, spasi=0):
-        print(' ' * spasi + f"[{self.sender}]: {self.message}")
-        for reply in self.replies:
-            reply.display_pesan(spasi + 4)
-    
-    def save_to_file (self, chat_database): # menyimpan chat & reply ke dalam file
-                     with open('./app/cli/data/chat_database.txt', 'a') as file:
-                           file.write(f"{self.sender} : {self.message}\n")
-                           for reply in self.replies:
-                                 reply.save_to_file(chat_database)
-    
-    def load_from_file(): # mengambil data dari file
-        chats = []
-        with open ('app/cli/data/chat_database.txt', 'r') as file:
-            lines = file.readlines()
-            current_chat = None
-            for line in lines:
-                if line:
-                    if line.startswith("[") and line.endswith("]"):
-                        if current_chat:
-                            chats.append(current_chat)
-                        sender_message = line [1:-2].split("]: ")
-                        current_chat = Chat(sender_message[0], sender_message[1])
-                    else:
-                        if current_chat:
-                            current_chat.add_reply("ReplySender", line)
-            if current_chat:
-                chats.append(current_chat)
-        return chats
+def load_chat_history():
+    """Memuat riwayat chat dari file."""
+    if not os.path.exists(CHAT_DATABASE):
+        return []
+    with open(CHAT_DATABASE, "r", encoding="utf-8") as file:
+        chats = file.readlines()
+    return [chat.strip() for chat in chats]
+
+def save_chat_to_database(sender, message):
+    """Menyimpan pesan ke database chat."""
+    with open(CHAT_DATABASE, "a", encoding="utf-8") as file:
+        file.write(f"{sender}: {message}\n")
+
+def display_chat_history(chats):
+    """Menampilkan riwayat chat."""
+    print("\n=== Riwayat Chat ===")
+    for chat in chats:
+        print(chat)
+    print("====================\n")
+

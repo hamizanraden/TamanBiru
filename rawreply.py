@@ -1,23 +1,27 @@
 # main.py
-from chat import Chat
+from chat import *
 
-def reply():
-    pengirim = input("Masukkan nama pengirim: ")
-    pesan = input("Masukkan balasan: ")
-    chat = Chat(pengirim, pesan)
-
+def main():
+    print("Selamat datang di Grup Chat!")
+    print("Ketik 'keluar' untuk mengakhiri program.")
+    
+    chat_history = load_chat_history()
+    display_chat_history(chat_history)
+    
     while True:
-        add_more = input("Apakah ingin menambahkan balasan? (y/n): ").strip().lower()
-        if add_more == 'y':
-            reply_pengirim = input("Masukkan nama pengirim balasan: ")
-            reply_pesan = input("Masukkan pesan balasan: ")
-            chat.add_reply(reply_pengirim, reply_pesan)
-        else:
+        sender = input("Masukkan nama Anda: ").strip()
+        if not sender:
+            print("Nama tidak boleh kosong.")
+            continue
+
+        message = input("Masukkan pesan Anda: ").strip()
+        if message.lower() == "keluar":
+            print("Keluar dari grup chat. Sampai jumpa!")
             break
 
-    print("\nPercakapan:")
-    chat.display_pesan()
+        if message:
+            save_chat_to_database(sender, message)
+            print(f"{sender}: {message}")
 
-# Menjalankan fungsi jika file dijalankan secara langsung
 if __name__ == "__main__":
-    reply()
+    main()
