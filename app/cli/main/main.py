@@ -10,10 +10,9 @@ def start_lobby():
         print('│───────────────────────────────────────│')
         print('│ 1. 👥 Chat All                        │')
         print('│ 2. 💼 Program Studi                   │')
-        print('│ 3. 📚 Mata Kuliah                     │')
-        print('│ 4. 🥇 Leaderboard                     │')
-        print('│ 5. 👤 Cek Akun                        │')
-        print('│ 6. ❌ Logout                          │')
+        print('│ 3. 🥇 Leaderboard                     │')
+        print('│ 4. 👤 Cek Akun                        │')
+        print('│ 5. ❌ Logout                          │')
         print('│───────────────────────────────────────│')
         print('└───────────────────────────────────────┘')
 
@@ -22,21 +21,18 @@ def start_lobby():
 
 # kondisional untuk memilih menu
         if masuk == '1' or masuk == 'Chat All'.lower:
-            reply_to_message()
+            print('Chat All')
             break
         elif masuk == '2' or masuk == 'Program Studi'.lower:
             print('Program Studi')
             
-        elif masuk == '3' or masuk == 'Mata Kuliah'.lower:
-            print('Mata Kuliah')
-            
-        elif masuk == '4' or masuk == 'Leaderboard'.lower:
+        elif masuk == '3' or masuk == 'Leaderboard'.lower:
             print('Leaderboard')
             
-        elif masuk == '5' or masuk == 'Cek Akun'.lower:
+        elif masuk == '4' or masuk == 'Cek Akun'.lower:
             print('Cek Akun')
             
-        elif masuk == '6' or masuk == 'Logout'.lower:
+        elif masuk == '5' or masuk == 'Logout'.lower:
             print('Anda telah keluar dari aplikasi')
             break
 
