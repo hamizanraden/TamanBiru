@@ -1,4 +1,4 @@
-from chat.message import save_chat_to_database
+from chat.message import *
 
 def reply_to_message(sender, message):
     save_chat_to_database(sender, f"[REPLY] {message}")
