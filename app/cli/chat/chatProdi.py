@@ -1,12 +1,15 @@
 import os
+path = './app/cli/data/'
 def read_chat(filename):
-    if not os.path.exists(filename):
+    filepath = os.path.join(path, filename) 
+    if not os.path.exists(filepath):
         return []
-    with open(filename, 'r', encoding='utf-8') as file:
+    with open(filepath, 'r', encoding='utf-8') as file:
         return file.readlines()
 
 def write_chat(filename, message):
-    with open(filename, 'a', encoding='utf-8') as file:
+    filepath = os.path.join(path, filename)
+    with open(filepath, 'a', encoding='utf-8') as file:
         file.write(message + '\n')
 
 def chat_prodi(prodi, filename):
@@ -53,8 +56,13 @@ def chat_prodi(prodi, filename):
                     if 0 <= question_idx < len(messages):
                         reply = input('Masukkan jawaban Anda: ')
                         if reply:
-                            write_chat(filename, f'A: {reply}')
-                            print('Jawaban berhasil dikirim!')
+                             # Perbarui file dengan jawaban terkait
+                            filepath = os.path.join(path, filename)
+                            messages[question_idx] = messages[question_idx].strip() + f" | Jawaban: {reply}\n"
+                            # Menulis ulang file
+                            with open(filepath, 'w', encoding='utf-8') as file:
+                                file.writelines(messages)
+                            print('Jawaban berhasil ditambahkan!')
                         else:
                             print('Jawaban tidak boleh kosong.')
                     else:
