@@ -23,15 +23,21 @@ def start_lobby():
 <<<<<<< HEAD
         if masuk == '1' or masuk == 'Chat All'.lower:
             print('Chat All')
+<<<<<<< HEAD
 =======
         if masuk == '1' or masuk == 'Chat All'.lower():
             print('start_message')
 >>>>>>> radenwork
+=======
+>>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
             break
         elif masuk == '2' or masuk == 'Program Studi'.lower():
             print('Program Studi')
             
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
         elif masuk == '3' or masuk == 'Leaderboard'.lower:
             print('Leaderboard')
             
@@ -39,6 +45,7 @@ def start_lobby():
             print('Cek Akun')
             
         elif masuk == '5' or masuk == 'Logout'.lower:
+<<<<<<< HEAD
 =======
         elif masuk == '3' or masuk == 'Mata Kuliah'.lower():
             print('Mata Kuliah')
@@ -51,6 +58,8 @@ def start_lobby():
             
         elif masuk == '6' or masuk == 'Logout'.lower():
 >>>>>>> radenwork
+=======
+>>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
             print('Anda telah keluar dari aplikasi')
             break
 
