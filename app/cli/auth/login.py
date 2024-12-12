@@ -3,27 +3,31 @@
 from main.main import start_lobby
 
 def start_login(name, password):
-    sukses = False
-    try:
-        with open('./app/cli/data/logindatabase.txt', 'r') as file:
-            for line in file:
-                a, b = line.strip().split(',')  # Menggunakan strip() untuk menghapus whitespace
-                if a == name and b == password:
-                    sukses = True
-                    break
-    except FileNotFoundError:
-        print("Username atau Password Anda Salah")
-        return
-    except Exception as e:
-        print(f"Terjadi kesalahan: {e}")
-        return
+    while True:
+        sukses = False
+        try:
+            with open('./app/cli/data/logindatabase.txt', 'r') as file:
+                for line in file:
+                    a, b = line.strip().split(',')  # Menggunakan strip() untuk menghapus whitespace
+                    if a == name and b == password:
+                        sukses = True
+                        break
+        except FileNotFoundError:
+            print("Username atau Password Anda Salah")
+            return 
+        except Exception as e:
+            print(f"Terjadi kesalahan: {e}")
+            return
+        
+        if sukses:
+            print('Login Berhasil')
+            start_lobby()
+            break
+        else:
+            print('Username atau Password Anda Salah. Coba lagi.')
+            name = input('Masukkan Username Anda: ')
+            password = input('Masukkan Password Anda: ')
     
-    if sukses:
-        print('Login Berhasil')
-        start_lobby()
-    else:
-        print('Username atau Password Anda Salah')
-
 def access_login(option):
     if option == 'start_login':
         while True:
