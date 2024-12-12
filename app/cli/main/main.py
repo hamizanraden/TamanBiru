@@ -1,12 +1,9 @@
-import sys
-from auth.login import access_login
-from auth.register import access_register
+# main.py
 
-def main():
-    # Mengganti encoding standar menjadi utf-8 agar bisa di run di semua terminal
-    sys.stdout.reconfigure(encoding='utf-8')
-    print('\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u0b68\u09ce\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510')
+from chat.reply import *
 
+# tampilan halaman utama aplikasi
+def start_lobby():
     while True:
         print('┌───────────────────୨ৎ──────────────────┐')
         print('│ Selamat Datang di Aplikasi Taman Biru │')
@@ -18,17 +15,24 @@ def main():
         print('│       3. Keluar dari aplikasi         │')
         print('└───────────────────────────────────────┘')
 
-        # User memilih jawaban 1 atau 2
-        masuk = input('Pilih jawaban: ')
+# user memilih menu
+        masuk = input('Pilih menu: ')
 
-        # Kondisional untuk memilih login atau register
-        if masuk == '1' or masuk == 'iya':
-            access_login('start_login')
+# kondisional untuk memilih menu
+        if masuk == '1' or masuk == 'Chat All'.lower:
+            print('Chat All')
             break
-        elif masuk == '2' or masuk == 'tidak':
-            access_register('start_register')
-        elif masuk == '3' or masuk == 'keluar':
-            print('Terima kasih telah menggunakan aplikasi kami.')
+        elif masuk == '2' or masuk == 'Program Studi'.lower:
+            print('Program Studi')
+            
+        elif masuk == '3' or masuk == 'Leaderboard'.lower:
+            print('Leaderboard')
+            
+        elif masuk == '4' or masuk == 'Cek Akun'.lower:
+            print('Cek Akun')
+            
+        elif masuk == '5' or masuk == 'Logout'.lower:
+            print('Anda telah keluar dari aplikasi')
             break
         else:
             print('Pilihan tidak tersedia.')
