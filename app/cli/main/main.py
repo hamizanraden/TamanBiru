@@ -1,56 +1,38 @@
-# main.py
 import sys
-import os
-sys.path.append(os.path.abspath('./app/cli/chat/'))
-from chat_all import chat_all
-# tampilan halaman utama aplikasi
-def start_lobby():
+from auth.login import access_login
+from auth.register import access_register
+
+def main():
+    # Mengganti encoding standar menjadi utf-8 agar bisa di run di semua terminal
+    sys.stdout.reconfigure(encoding='utf-8')
+    print('\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u0b68\u09ce\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510')
+
     while True:
         print('┌───────────────────୨ৎ──────────────────┐')
-        print('│               TamanBiru               │')
+        print('│ Selamat Datang di Aplikasi Taman Biru │')
         print('│───────────────────────────────────────│')
-        print('│ 1. 👥 Chat All                        │')
-        print('│ 2. 💼 Program Studi                   │')
-        print('│ 3. 🥇 Leaderboard                     │')
-        print('│ 4. 👤 Cek Akun                        │')
-        print('│ 5. ❌ Logout                          │')
+        print('│   Apakah kamu sudah memiliki akun?    │')
         print('│───────────────────────────────────────│')
+        print('│   1. Iya, saya sudah memiliki akun    │')
+        print('│  2. Tidak, saya belum memiliki akun   │')
+        print('│       3. Keluar dari aplikasi         │')
         print('└───────────────────────────────────────┘')
 
-# user memilih menu
-        masuk = input('Pilih menu: ')
-# kondisional untuk memilih menu
+        # User memilih jawaban 1 atau 2
+        masuk = input('Pilih jawaban: ')
 
-        if masuk == '1' or masuk == 'Chat All'.lower:
-            print('Chat All')
+        # Kondisional untuk memilih login atau register
+        if masuk == '1' or masuk == 'iya':
+            access_login('start_login')
             break
-        elif masuk == '2' or masuk == 'Program Studi'.lower:
-            print('Program Studi')
-            
-
-        elif masuk == '3' or masuk == 'Leaderboard'.lower:
-            print('Leaderboard')
-            
-        elif masuk == '4' or masuk == 'Cek Akun'.lower:
-            print('Cek Akun')
-            
-        elif masuk == '5' or masuk == 'Logout'.lower:
-
-        elif masuk == '3' or masuk == 'Mata Kuliah'.lower():
-            print('Mata Kuliah')
-            
-        elif masuk == '4' or masuk == 'Leaderboard'.lower():
-            print('Leaderboard')
-            
-        elif masuk == '5' or masuk == 'Cek Akun'.lower():
-            print('Cek Akun')
-            
-        elif masuk == '6' or masuk == 'Logout'.lower():
-
-
-            print('Anda telah keluar dari aplikasi')
+        elif masuk == '2' or masuk == 'tidak':
+            access_register('start_register')
+        elif masuk == '3' or masuk == 'keluar':
+            print('Terima kasih telah menggunakan aplikasi kami.')
             break
-
         else:
-            print('Menu tidak tersedia')
-        
+            print('Pilihan tidak tersedia.')
+
+# Menjalankan aplikasi
+if __name__ == '__main__':
+    main()
