@@ -1,3 +1,7 @@
 mizan,mizan
+<<<<<<< HEAD
 admin,admin
 deadline,deadline
+=======
+hehehe,hehehehe
+>>>>>>> radenwork

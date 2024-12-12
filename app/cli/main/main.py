@@ -20,12 +20,18 @@ def start_lobby():
         masuk = input('Pilih menu: ')
 
 # kondisional untuk memilih menu
+<<<<<<< HEAD
         if masuk == '1' or masuk == 'Chat All'.lower:
             print('Chat All')
+=======
+        if masuk == '1' or masuk == 'Chat All'.lower():
+            print('start_message')
+>>>>>>> radenwork
             break
-        elif masuk == '2' or masuk == 'Program Studi'.lower:
+        elif masuk == '2' or masuk == 'Program Studi'.lower():
             print('Program Studi')
             
+<<<<<<< HEAD
         elif masuk == '3' or masuk == 'Leaderboard'.lower:
             print('Leaderboard')
             
@@ -33,6 +39,18 @@ def start_lobby():
             print('Cek Akun')
             
         elif masuk == '5' or masuk == 'Logout'.lower:
+=======
+        elif masuk == '3' or masuk == 'Mata Kuliah'.lower():
+            print('Mata Kuliah')
+            
+        elif masuk == '4' or masuk == 'Leaderboard'.lower():
+            print('Leaderboard')
+            
+        elif masuk == '5' or masuk == 'Cek Akun'.lower():
+            print('Cek Akun')
+            
+        elif masuk == '6' or masuk == 'Logout'.lower():
+>>>>>>> radenwork
             print('Anda telah keluar dari aplikasi')
             break
 
