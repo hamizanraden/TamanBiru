@@ -1,7 +1,8 @@
 # main.py
-
-from chat.reply import *
-
+import sys
+import os
+sys.path.append(os.path.abspath('./app/cli/chat/'))
+from chat_all import chat_all
 # tampilan halaman utama aplikasi
 def start_lobby():
     while True:
@@ -18,32 +19,15 @@ def start_lobby():
 
 # user memilih menu
         masuk = input('Pilih menu: ')
-
 # kondisional untuk memilih menu
-<<<<<<< HEAD
+
         if masuk == '1' or masuk == 'Chat All'.lower:
             print('Chat All')
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        if masuk == '1' or masuk == 'Chat All'.lower():
-            print('start_message')
->>>>>>> radenwork
-=======
->>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
-=======
->>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
             break
-        elif masuk == '2' or masuk == 'Program Studi'.lower():
+        elif masuk == '2' or masuk == 'Program Studi'.lower:
             print('Program Studi')
             
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
-=======
->>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
+
         elif masuk == '3' or masuk == 'Leaderboard'.lower:
             print('Leaderboard')
             
@@ -51,9 +35,7 @@ def start_lobby():
             print('Cek Akun')
             
         elif masuk == '5' or masuk == 'Logout'.lower:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
         elif masuk == '3' or masuk == 'Mata Kuliah'.lower():
             print('Mata Kuliah')
             
@@ -64,11 +46,8 @@ def start_lobby():
             print('Cek Akun')
             
         elif masuk == '6' or masuk == 'Logout'.lower():
->>>>>>> radenwork
-=======
->>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
-=======
->>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
+
+
             print('Anda telah keluar dari aplikasi')
             break
 

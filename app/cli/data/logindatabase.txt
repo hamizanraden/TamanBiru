@@ -4,6 +4,7 @@ mizan,mizan
 <<<<<<< HEAD
 admin,admin
 deadline,deadline
+<<<<<<< HEAD
 =======
 hehehe,hehehehe
 >>>>>>> radenwork
@@ -15,3 +16,6 @@ deadline,deadline
 admin,admin
 deadline,deadline
 >>>>>>> 95903ce3443dcf478f016182718b461e35b7a6e5
+=======
+Vicky,Vicky
+>>>>>>> 8662430ef2102b21c87f893768bf3aff1fc59b06
