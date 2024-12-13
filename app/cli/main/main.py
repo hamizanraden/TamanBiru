@@ -1,7 +1,9 @@
 # main.py
-
-from chat.reply import *
-
+import sys
+import os
+sys.path.append(os.path.abspath('./app/cli/chat/'))
+from chat_all import chat_all
+from chatProdi import program_studi
 # tampilan halaman utama aplikasi
 def start_lobby():
     while True:
@@ -18,14 +20,11 @@ def start_lobby():
 
 # user memilih menu
         masuk = input('Pilih menu: ')
-
 # kondisional untuk memilih menu
         if masuk == '1' or masuk == 'Chat All'.lower:
-            print('Chat All')
-            break
+            chat_all()
         elif masuk == '2' or masuk == 'Program Studi'.lower:
-            print('Program Studi')
-            
+            program_studi()
         elif masuk == '3' or masuk == 'Leaderboard'.lower:
             print('Leaderboard')
             
