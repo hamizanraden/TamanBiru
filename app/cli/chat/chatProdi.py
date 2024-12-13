@@ -1,15 +1,12 @@
 import os
-path = './app/cli/data/'
 def read_chat(filename):
-    filepath = os.path.join(path, filename) 
-    if not os.path.exists(filepath):
+    if not os.path.exists(filename):
         return []
-    with open(filepath, 'r', encoding='utf-8') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         return file.readlines()
 
 def write_chat(filename, message):
-    filepath = os.path.join(path, filename)
-    with open(filepath, 'a', encoding='utf-8') as file:
+    with open(filename, 'a', encoding='utf-8') as file:
         file.write(message + '\n')
 
 def chat_prodi(prodi, filename):
@@ -56,13 +53,8 @@ def chat_prodi(prodi, filename):
                     if 0 <= question_idx < len(messages):
                         reply = input('Masukkan jawaban Anda: ')
                         if reply:
-                             # Perbarui file dengan jawaban terkait
-                            filepath = os.path.join(path, filename)
-                            messages[question_idx] = messages[question_idx].strip() + f" | Jawaban: {reply}\n"
-                            # Menulis ulang file
-                            with open(filepath, 'w', encoding='utf-8') as file:
-                                file.writelines(messages)
-                            print('Jawaban berhasil ditambahkan!')
+                            write_chat(filename, f'A: {reply}')
+                            print('Jawaban berhasil dikirim!')
                         else:
                             print('Jawaban tidak boleh kosong.')
                     else:
@@ -93,15 +85,15 @@ def program_studi():
         pilihan = input('Pilih menu: ')
 
         if pilihan == '1':
-            chat_prodi('RPL', 'chatrpl.txt')
+            chat_prodi('RPL', 'app\cli\data\chatrpl.txt')
         elif pilihan == '2':
-            chat_prodi('TEKKOM', 'chattekom.txt')
+            chat_prodi('TEKKOM', 'app\cli\data\chattekom.txt')
         elif pilihan == '3':
-            chat_prodi('PGSD', 'chatpgsd.txt')
+            chat_prodi('PGSD', 'app\cli\data\chatpgsd.txt')
         elif pilihan == '4':
-            chat_prodi('PMM', 'chatpmm.txt')
+            chat_prodi('PMM', 'app\cli\data\chatpmm.txt')
         elif pilihan == '5':
-            chat_prodi('PGPAUD', 'chatpgpaud.txt')
+            chat_prodi('PGPAUD', 'app\cli\data\chatpgpaud.txt')
         elif pilihan == '6':
             print('Kembali ke menu utama...')
             break
