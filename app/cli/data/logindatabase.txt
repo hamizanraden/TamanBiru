@@ -3,10 +3,5 @@ admin,admin
 deadline,deadline
 Vicky,Vicky
 ilyas,123
-pp//.,.,`122.
-pp/.,123.
-pp.,123.
-ilyass,123
-multi,123
-ww,123
-mamad,321
+daspro,123456
+mamad,654321
