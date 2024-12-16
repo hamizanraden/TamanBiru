@@ -18,7 +18,7 @@ def access_register(option):
             password = input('Masukkan Password baru: ').strip()
             
             if name and password:
-                # Validasi panjang username dan password
+                # Validasi panjang username dan password(bebas tergntung kelompok kita nentuinnya)
                 if len(name) < 3 or len(password) < 6:
                     print("Coba lagi.")
                     continue
