@@ -1,4 +1,4 @@
-from auth.login import access_login
+
 import os
 
 def start_register(name, password):
@@ -33,7 +33,6 @@ def access_register(option):
                             return
                         else:
                             start_register(name, password)
-                            access_login('start_login')
                             break
                 except FileNotFoundError:
                     print("Database tidak ditemukan. Membuat database baru.")
