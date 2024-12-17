@@ -33,7 +33,7 @@ def access_register(option):
                             return
                         else:
                             start_register(name, password)
-                            break
+                            break #kembali ke menu awal 
                 except FileNotFoundError:
                     print("Database tidak ditemukan. Membuat database baru.")
                     start_register(name, password)
