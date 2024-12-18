@@ -21,7 +21,7 @@ def start_login(name, password):
                         sukses = True
                         break
         except FileNotFoundError:
-            print("Database tidak ditemukan. Silakan registrasi terlebih dahulu.")
+            print("Data tidak ditemukan. Silakan registrasi terlebih dahulu.")
             return 
         except Exception as e:
             print(f"Terjadi kesalahan: {e}")
