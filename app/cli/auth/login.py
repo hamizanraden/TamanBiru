@@ -1,7 +1,6 @@
-# login.py
-
 from main.main import start_lobby
 from auth.register import access_register
+
 def start_login(name, password):
     batas = 0  
     Kesempatan_login = 3  
@@ -13,10 +12,10 @@ def start_login(name, password):
                 for line in file:
                     # Pastikan baris memiliki format yang benar
                     data = line.strip().split(',')
-                    if len(data) != 2:  # Abaikan baris yang tidak sesuai format
+                    if len(data) != 3:  # Abaikan baris yang tidak sesuai format
                         continue
                     
-                    a, b = data
+                    a, _, b = data  # Ambil kolom name dan password, abaikan email
                     if a == name and b == password:
                         sukses = True
                         break
@@ -33,20 +32,15 @@ def start_login(name, password):
             break
         else:
             batas += 1 
-            print(f"Username atau Password Anda Salah.Kesempatan Anda {Kesempatan_login - batas}x kali lagi!!!!!!!")
+            print(f"Username atau Password Anda Salah. Kesempatan Anda {Kesempatan_login - batas}x kali lagi!")
             if batas < Kesempatan_login:
                 name = input("Masukkan Username Anda: ").strip()
                 password = input("Masukkan Password Anda: ").strip()
             else:
-                print("Anda telah mencoba login 3 kali. Apakah Anda ingin keluar atau registrasi?")
-                choice = input("Ketik 'keluar' untuk keluar\n Ketik 'registrasi' untuk mendaftar: ").strip().lower()
-                if choice == 'registrasi':
-                    access_register('start_register')
-                elif choice == 'keluar':
-                    print("Terima kasih telah menggunakan aplikasi kami.")
-                else:
-                    print("Pilihan tidak valid. Mengembalikan Anda ke menu utama.")
-                break
+                from run import display_main_menu
+                print("Tekan Enter untuk kembali ke halaman login")
+                input()
+                display_main_menu()
 
 def access_login(option):
     if option == 'start_login':

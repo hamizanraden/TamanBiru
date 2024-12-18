@@ -7,7 +7,3 @@ daspro,123456
 mamad,654321
 sayaaa,1234567
 seser,7654321
-wanwan,987654321
-wawan,,1234567
-wawa,12345,12345.
-rere,saiful,123.
