@@ -1,2 +1,7 @@
 Vicky: Aduh
+<<<<<<< HEAD
 Uy: Okey
+=======
+ilyas: tes
+3: j
+>>>>>>> ilyas.py
