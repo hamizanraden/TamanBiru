@@ -46,7 +46,7 @@ def start_lobby():
             print('Cek Akun')
             
         elif masuk == '5' or masuk == 'Logout'.lower:
-            print('Anda telah keluar dari aplikasi')
+            print('Anda telah keluar dari akun anda')
             break
 
         else:
