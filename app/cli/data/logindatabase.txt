@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 mizan,mizan
 admin,admin
 deadline,deadline
-<<<<<<< HEAD
-=======
 Vicky,Vicky
->>>>>>> 334470393ad00f2b3602c8d7dda508e302fbb3d1
-=======
 tamanbiru,tamanbiru@upi.edu,tamanbiru
->>>>>>> 90034942e2d740e1b248795715e99b89fd9760e0

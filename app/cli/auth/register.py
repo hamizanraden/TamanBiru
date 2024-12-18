@@ -8,7 +8,8 @@ def start_register(name, email, password):
             file.write(f"{name},{email},{password}\n")
         print('Registrasi Berhasil')
     except Exception as e:
-        print(f"Terjadi kesalahan saat menyimpan data: {e}")
+        print(f"Terjadi kesalahan saat menyimpan data")
+        access_register('start_register')
 
 def email_upi(email):
     return email.endswith('@upi.edu')
@@ -26,8 +27,11 @@ def access_register(option):
                 if len(name) < 3 or len(password) < 6:
                     print("Coba lagi.")
                     continue
-                if not email_upi(email):
+                elif not email_upi(email):
                     print("Email harus menggunakan @upi.edu")
+                    continue
+                elif ',' in name or ',' in email or ',' in password:
+                    print("Nama, email, dan password tidak boleh mengandung koma (,).")
                     continue
 
                 try:
