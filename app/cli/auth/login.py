@@ -32,8 +32,17 @@ def start_login(name, password):
             start_lobby()
             break
         else:
-            batas -= 1 
-            print(f"Username atau Password Anda Salah. Kesempatan Anda {batas}x kali lagi!")
+            batas -= 1
+            if batas > 0:
+                print(f"Username atau Password Anda Salah. Kesempatan Anda {batas}x kali lagi!")
+            
+            else:
+                print("Kesempatan login Anda telah habis.")
+                from run import display_main_menu
+                print("Tekan Enter untuk kembali ke halaman login")
+                input()
+                display_main_menu()
+                return  # Keluar dari fungsi
             
             while True:
                 print("┌───────────────────୨ৎ──────────────────┐")
@@ -43,28 +52,16 @@ def start_login(name, password):
                 lupa = input('Pilih opsi: ')
 
                 if lupa == '1':
-                    if batas > 1:
+                    if batas >=1:
                         name = input("Masukkan Username Anda: ").strip()
                         password = input("Masukkan Password Anda: ").strip()
                         break
-                    else:
-                        print("Kesempatan login Anda telah habis.")
-                        from run import display_main_menu
-                        print("Tekan Enter untuk kembali ke halaman login")
-                        input()
-                        display_main_menu()
-                        return  # Keluar dari fungsi
-                
                 elif lupa == '2':
                     forgot_password()
                     return
-
                 else:
-                    from run import display_main_menu
-                    print("Tekan Enter untuk kembali ke halaman login")
-                    input()
-                    display_main_menu()
-
+                    print("Pilihan tidak tersedia. Silakan pilih opsi yang tersedia.")
+                    continue
 def access_login(option):
     if option == 'start_login':
         while True:

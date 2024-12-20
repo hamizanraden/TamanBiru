@@ -51,10 +51,11 @@ def update_password(email, new_password):
 
 def forgot_password():
     print("== Lupa Password ==")
-    email = input("Masukkan email yang terdaftar (@upi.edu): ").strip()
-    
-    if not email_upi(email):
-        print("Email harus menggunakan domain @upi.edu. Coba lagi.")
-        return
-    
-    reset_password(email)
+    while True: 
+        email = input("Masukkan email yang terdaftar (@upi.edu): ").strip()
+        
+        if email_upi(email):
+            reset_password(email)
+            break
+        else:
+            print("Email tidak valid. Coba lagi.")

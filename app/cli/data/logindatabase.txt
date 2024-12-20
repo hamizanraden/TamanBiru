@@ -2,4 +2,4 @@ mizan,mizan
 admin,admin
 deadline,deadline
 Vicky,Vicky
-tamanbiru,tamanbiru@upi.edu,tatang
+tamanbiru,tamanbiru@upi.edu,tamanbiru
