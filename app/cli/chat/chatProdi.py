@@ -10,6 +10,8 @@ def write_chat(filename, message):
         file.write(message + '\n')
 
 def chat_prodi(prodi, filename):
+    from report.report import report_message
+    
     while True:
         print(f'\n┌───────────────────୨ৎ─────────────────┐')
         print(f'│                Chat {prodi.upper()}              │')
@@ -17,7 +19,8 @@ def chat_prodi(prodi, filename):
         print('│ 1. 📜 Lihat Pertanyaan               │')
         print('│ 2. ✍️  Ajukan Pertanyaan              │')
         print('│ 3. 💬 Balas Pertanyaan               │')
-        print('│ 4. 🔙 Kembali                        │')
+        print('│ 4. ❗ Laporkan Pesan/jawaban         │')
+        print('│ 5. 🔙 Kembali                        │')
         print('└──────────────────────────────────────┘')
 
         pilihan = input('Pilih menu: ')
@@ -61,8 +64,26 @@ def chat_prodi(prodi, filename):
                         print('Nomor pertanyaan tidak valid.')
                 except ValueError:
                     print('Masukkan angka yang valid.')
-
         elif pilihan == '4':
+            messages = read_chat(filename)
+            if not messages:
+                print('\nBelum ada pertanyaan untuk di-report.')
+            else:
+                print('\nDaftar Pertanyaan:')
+                for idx, message in enumerate(messages, start=1):
+                    print(f'{idx}. {message.strip()}')
+                try:
+                    report_idx = int(input('\nPilih nomor pertanyaan untuk di-report: ')) - 1
+                    if 0 <= report_idx < len(messages):
+                        reported_message = messages[report_idx].strip()
+                        count = report_message(reported_message, chat_file=filename, limit=3)
+                        print(f'Pesan berhasil di-report! (Total laporan: {count})')
+                    else:
+                        print('Nomor pertanyaan tidak valid.')
+                except ValueError:
+                    print('Masukkan angka yang valid.')
+            
+        elif pilihan == '5':
             print('Kembali ke menu utama...')
             break
 
