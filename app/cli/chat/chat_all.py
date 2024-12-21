@@ -1,4 +1,6 @@
 import os
+from report.report import report_message
+
 def read_chat():
     if not os.path.exists('./app/cli/data/chatAll.txt'):
         return []
@@ -16,7 +18,8 @@ def chat_all():
         print('│───────────────────────────────────────│')
         print('│ 1. 📜 Lihat Pesan                     │')
         print('│ 2. ✍️  Kirim Pesan                     │')
-        print('│ 3. 🔙 Kembali                         │')
+        print('│ 3. ❗ Laporkan Pesan                  │')
+        print('│ 4. 🔙 Kembali                         │')
         print('└───────────────────────────────────────┘')
 
         pilihan = input('Pilih menu: ')
@@ -40,6 +43,26 @@ def chat_all():
                 print('Nama atau pesan tidak boleh kosong.')
 
         elif pilihan == '3':
+            messages = read_chat()
+            if not messages:
+                print('\nBelum ada pesan untuk dilaporkan.')
+            else:
+                print('\nPesan Tersimpan:')
+                for i, message in enumerate(messages, start=1):
+                    print(f'{i}. {message.strip()}')
+                    
+                try: 
+                    index = int(input('\nMasukkan nomor pesan yang ingin dilaporkan: '))
+                    if 1 <= index <= len(messages):
+                        reported_message = messages[index - 1].strip()
+                        count = report_message(reported_message)
+                        print(f'Pesan berhasil dilaporkan! Total laporan: {count}')
+                    else:
+                        print('Nomor pesan tidak valid.')
+                except ValueError:
+                    print('Input tidak valid.')
+                    
+        elif pilihan == '4':
             print('Kembali ke menu utama...')
             break
 
