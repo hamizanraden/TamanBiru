@@ -8,7 +8,6 @@ def start_register(name, email, password):
         print('Registrasi Berhasil')
     except Exception as e:
         print(f"Terjadi kesalahan saat menyimpan data: {e}")
-        access_register('start_register')
 
 def email_upi(email):
     return email.endswith('@upi.edu')
@@ -26,12 +25,8 @@ def access_register(option):
                 if len(name) < 3 or len(password) < 6:
                     print("Username atau Password tidak memenuhi syarat.")
                     continue
-                if not email_upi(email):
+                elif not email_upi(email):
                     print("Email harus menggunakan @upi.edu")
-                    continue
-                # Validasi untuk tanda koma
-                if ',' in name or ',' in email or ',' in password:
-                    print("Input tidak boleh mengandung tanda koma (,). Silakan coba lagi.")
                     continue
 
                 try:
@@ -52,6 +47,6 @@ def access_register(option):
                 except Exception as e:
                     print(f"Terjadi kesalahan: {e}")
             else:
-                print("Username dan Password tidak boleh kosong. Silakan coba lagi.")
+                print("Nama, Email, dan Password tidak boleh kosong. Silakan coba lagi.")
     else:
         print('Opsi tidak valid.')
