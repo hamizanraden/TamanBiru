@@ -1,1 +1,6 @@
+mizan,mizan
+admin,admin
+deadline,deadline
+Vicky,Vicky
 tamanbiru,tamanbiru@upi.edu,tamanbiru
+biru,biru@upi.edu,biru12

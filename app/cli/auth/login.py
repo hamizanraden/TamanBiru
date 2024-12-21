@@ -1,11 +1,12 @@
 from main.main import start_lobby
 from auth.register import access_register
+from auth.forgot import forgot_password
 
 def start_login(name, password):
-    batas = 0  
-    Kesempatan_login = 3  
+    batas = 3  
+      
 
-    while batas < Kesempatan_login:
+    while batas > 0:
         sukses = False
         try:
             with open('./app/cli/data/logindatabase.txt', 'r') as file:
@@ -19,6 +20,7 @@ def start_login(name, password):
                     if a == name and b == password:
                         sukses = True
                         break
+
         except FileNotFoundError:
             print("Database tidak ditemukan. Silakan registrasi terlebih dahulu.")
             return 
@@ -31,17 +33,36 @@ def start_login(name, password):
             start_lobby()
             break
         else:
-            batas += 1 
-            print(f"Username atau Password Anda Salah. Kesempatan Anda {Kesempatan_login - batas}x kali lagi!")
-            if batas < Kesempatan_login:
-                name = input("Masukkan Username Anda: ").strip()
-                password = input("Masukkan Password Anda: ").strip()
+            batas -= 1
+            if batas > 0:
+                print(f"Username atau Password Anda Salah. Kesempatan Anda {batas}x kali lagi!")
+            
             else:
+                print("Kesempatan login Anda telah habis.")
                 from run import display_main_menu
                 print("Tekan Enter untuk kembali ke halaman login")
                 input()
                 display_main_menu()
+                return  # Keluar dari fungsi
+            
+            while True:
+                print("┌───────────────────୨ৎ──────────────────┐")
+                print("│  1. Coba Lagi     │ 2. Lupa Password  │")
+                print("└───────────────────୨ৎ──────────────────┘")
 
+                lupa = input('Pilih opsi: ')
+
+                if lupa == '1':
+                    if batas >=1:
+                        name = input("Masukkan Username Anda: ").strip()
+                        password = input("Masukkan Password Anda: ").strip()
+                        break
+                elif lupa == '2':
+                    forgot_password()
+                    return
+                else:
+                    print("Pilihan tidak tersedia. Silakan pilih opsi yang tersedia.")
+                    continue
 def access_login(option):
     if option == 'start_login':
         while True:
