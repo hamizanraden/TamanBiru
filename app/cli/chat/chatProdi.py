@@ -35,13 +35,13 @@ def chat_prodi(prodi, filename):
                     print(f'{idx}. {message.strip()}')
 
         elif pilihan == '2':
-            username = input('\nMasukkan nama Anda: ')
+            from auth.login import nama_pegguna
             content = input('Masukkan pertanyaan Anda: ')
-            if username and content:
-                write_chat(filename, f'Q: {username}: {content}')
+            if nama_pegguna and content:
+                write_chat(filename, f'Q: {nama_pegguna}: {content}')
                 print('Pertanyaan berhasil diajukan!')
             else:
-                print('Nama atau pertanyaan tidak boleh kosong.')
+                print('pertanyaan tidak boleh kosong.')
 
         elif pilihan == '3':
             messages = read_chat(filename)
