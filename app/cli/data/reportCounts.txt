@@ -1,1 +1,3 @@
-raden: hai|1
+raden: hai|1|
+tamanbiru: tutuss|1|tamanbiru
+A: wqwer|1|tamanbiru

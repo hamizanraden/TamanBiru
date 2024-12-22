@@ -40,9 +40,10 @@ def chat_all():
                 write_chat(f'{nama_pegguna}: {content}')
                 print('Pesan berhasil dikirim!')
             else:
-                print('pesan tidak boleh kosong.')
+                print('Nama atau pesan tidak boleh kosong.')
 
         elif pilihan == '3':
+            from auth.login import nama_pegguna  # Pastikan nama pengguna tersedia
             messages = read_chat()
             if not messages:
                 print('\nBelum ada pesan untuk dilaporkan.')
@@ -51,17 +52,17 @@ def chat_all():
                 for i, message in enumerate(messages, start=1):
                     print(f'{i}. {message.strip()}')
                     
-                try: 
+                try:
                     index = int(input('\nMasukkan nomor pesan yang ingin dilaporkan: '))
                     if 1 <= index <= len(messages):
                         reported_message = messages[index - 1].strip()
-                        count = report_message(reported_message)
+                        count = report_message(reported_message, reporter=nama_pegguna)
                         print(f'Pesan berhasil dilaporkan! Total laporan: {count}')
                     else:
                         print('Nomor pesan tidak valid.')
                 except ValueError:
                     print('Input tidak valid.')
-                    
+
         elif pilihan == '4':
             print('Kembali ke menu utama...')
             break
