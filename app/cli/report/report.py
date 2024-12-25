@@ -1,32 +1,28 @@
 import os
 
-REPORT_FILE = './app/cli/data/reportCounts.txt'
+Lapor = './app/cli/data/reportCounts.txt'
 
-def initialize_reports():
-    """Ensure report file exists."""
-    if not os.path.exists(REPORT_FILE):
-        with open(REPORT_FILE, 'w', encoding='utf-8') as file:
+def mulai_laporan():
+    if not os.path.exists(Lapor):
+        with open(Lapor, 'w', encoding='utf-8') as file:
             file.write('')
 
 def load_reports():
-    """Load report data into a dictionary."""
-    if not os.path.exists(REPORT_FILE):
-        initialize_reports()
-    with open(REPORT_FILE, 'r', encoding='utf-8') as file:
+    """Load report data ke dictionary."""
+    if not os.path.exists(Lapor):
+        mulai_laporan()
+    with open(Lapor, 'r', encoding='utf-8') as file:
         return {line.split('|')[0]: int(line.split('|')[1]) for line in file if '|' in line}
 
 def save_reports(reports):
-    """Save the reports dictionary to file."""
-    with open(REPORT_FILE, 'w', encoding='utf-8') as file:
+    """Simpan pesan ke dictionary."""
+    with open(Lapor, 'w', encoding='utf-8') as file:
         for message, count in reports.items():
             file.write(f'{message}|{count}\n')
 
 def report_message(message, chat_file='./app/cli/data/chatAll.txt', limit=3):
-    """
-    Report a message in the specified chat file.
-    If the report count exceeds the limit, the message is removed.
-    """
-    initialize_reports()
+    
+    mulai_laporan()
     reports = load_reports()
 
     # Normalize the message
@@ -44,7 +40,6 @@ def report_message(message, chat_file='./app/cli/data/chatAll.txt', limit=3):
     return reports.get(normalized_message, 0)
 
 def delete_message(message, chat_file):
-    """Delete the reported message from the specified chat file."""
     normalized_message = message.strip()
 
     if os.path.exists(chat_file):
