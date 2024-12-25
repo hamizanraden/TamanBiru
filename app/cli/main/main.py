@@ -35,7 +35,7 @@ def start_lobby():
         elif masuk == '5' or masuk == 'Logout'.lower:
             print('Anda telah keluar dari akun anda')
             break
-
+        
         else:
             print('Menu tidak tersedia')
         
