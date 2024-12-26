@@ -8,12 +8,15 @@ def start_login(name, password):
         try:
             with open('./app/cli/data/logindatabase.txt', 'r') as file:
                 for line in file:
-                    a, b = line.strip().split(',')  # Menggunakan strip() untuk menghapus whitespace
-                    if a == name and b == password:
-                        sukses = True
-                        break
+                    # Memisahkan semua nilai dalam baris
+                    data = line.strip().split(',')
+                    if len(data) >= 2:  # Pastikan ada setidaknya username dan password
+                        a, b = data[0], data[1]  # Ambil username dan password
+                        if a == name and b == password:
+                            sukses = True
+                            break
         except FileNotFoundError:
-            print("Username atau Password Anda Salah")
+            print("Database tidak ditemukan.")
             return 
         except Exception as e:
             print(f"Terjadi kesalahan: {e}")
@@ -27,7 +30,6 @@ def start_login(name, password):
             print('Username atau Password Anda Salah. Coba lagi.')
             name = input('Masukkan Username Anda: ')
             password = input('Masukkan Password Anda: ')
-    
 def access_login(option):
     if option == 'start_login':
         while True:

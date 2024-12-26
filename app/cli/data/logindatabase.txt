@@ -2,3 +2,7 @@ mizan,mizan
 admin,admin
 deadline,deadline
 Vicky,Vicky
+denis,denis
+Kinan,123, kinan@gmail.com, rpl, 1
+oji,123, kinan@gmail.com, rpl, 1
+icki,icki, icki, icki, icki
