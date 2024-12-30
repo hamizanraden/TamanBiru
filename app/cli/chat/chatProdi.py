@@ -35,10 +35,11 @@ def chat_prodi(prodi, filename):
                     print(f'{idx}. {message.strip()}')
 
         elif pilihan == '2':
-            username = input('\nMasukkan nama Anda: ')
+            from auth.login import nama_pegguna
+
             content = input('Masukkan pertanyaan Anda: ')
-            if username and content:
-                write_chat(filename, f'Q: {username}: {content}')
+            if nama_pegguna and content:
+                write_chat(filename, f'Q: {nama_pegguna}: {content}')
                 print('Pertanyaan berhasil diajukan!')
             else:
                 print('Nama atau pertanyaan tidak boleh kosong.')
@@ -65,28 +66,30 @@ def chat_prodi(prodi, filename):
                 except ValueError:
                     print('Masukkan angka yang valid.')
         elif pilihan == '4':
-            messages = read_chat(filename)
+            from auth.login import nama_pegguna
+            messages = read_chat(filename)  # filename dinamis sesuai prodi
             if not messages:
-                print('\nBelum ada pertanyaan untuk di-report.')
+                print('\nBelum ada pesan untuk dilaporkan.')
             else:
-                print('\nDaftar Pertanyaan:')
-                for idx, message in enumerate(messages, start=1):
-                    print(f'{idx}. {message.strip()}')
+                print('\nPesan Tersimpan:')
+                for i, message in enumerate(messages, start=1):
+                    print(f'{i}. {message.strip()}')
+                    
                 try:
-                    report_idx = int(input('\nPilih nomor pertanyaan untuk di-report: ')) - 1
-                    if 0 <= report_idx < len(messages):
-                        reported_message = messages[report_idx].strip()
-                        count = report_message(reported_message, chat_file=filename, limit=3)
-                        print(f'Pesan berhasil di-report! (Total laporan: {count})')
+                    index = int(input('\nMasukkan nomor pesan yang ingin dilaporkan: '))
+                    if 1 <= index <= len(messages):
+                        reported_message = messages[index - 1].strip()
+                        count = report_message(reported_message, reporter=nama_pegguna, chat_file=filename)
+                        print(f'Pesan berhasil dilaporkan!')
                     else:
-                        print('Nomor pertanyaan tidak valid.')
+                        print('Nomor pesan tidak valid.')
                 except ValueError:
-                    print('Masukkan angka yang valid.')
-            
+                    print('Input tidak valid.')
+
+                
         elif pilihan == '5':
             print('Kembali ke menu utama...')
             break
-
         else:
             print('Pilihan tidak valid. Coba lagi.')
             
