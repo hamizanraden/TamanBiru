@@ -1,8 +1,4 @@
-mizan,mizan
-admin,admin
-deadline,deadline
-Vicky,Vicky
-denis,denis
-Kinan,123, kinan@gmail.com, rpl, 1
-oji,123, kinan@gmail.com, rpl, 1
-icki,icki, icki, icki, icki
+tamanbiru,tamanbiru@upi.edu,tamanbiru
+biru,biru@upi.edu,biru12
+Vicky,vicky@upi.edu,123123
+>>>>>>> 60693f896e495a75b91f63352db4f4227aebcf29

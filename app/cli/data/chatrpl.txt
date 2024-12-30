@@ -2,5 +2,6 @@ Q: Vicky: Apa itu html?
 A: Hypertext Markup Language
 Q: Febri: UX?
 A: User experience adalah bagaimana seorang pengguna merasakan interaksi dan pengalaman menggunakan produk
-Q: RPL adalah?: 3
-A: three
+A: Iya bener febri 
+Q: Febri: Umm... Cuma ngetes
+>>>>>>> 60693f896e495a75b91f63352db4f4227aebcf29
