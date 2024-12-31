@@ -2,3 +2,8 @@ Q: Vicky: Apa itu html?
 A: Hypertext Markup Language
 Q: Febri: UX?
 A: User experience adalah bagaimana seorang pengguna merasakan interaksi dan pengalaman menggunakan produk
+<<<<<<< HEAD
+=======
+A: Iya bener febri 
+Q: Febri: Umm... Cuma ngetes
+>>>>>>> cafaa8b30de484d61272ecaec4cc380f55ea1cf9
