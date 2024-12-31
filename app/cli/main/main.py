@@ -4,6 +4,8 @@ import os
 sys.path.append(os.path.abspath('./app/cli/chat/'))
 from chat_all import chat_all
 from chatProdi import program_studi
+from leaderBoard import leaderboard
+from main.settings import settings_menu
 
 # tampilan halaman utama aplikasi
 def start_lobby():
@@ -15,7 +17,8 @@ def start_lobby():
         print('│ 2. 💼 Program Studi                   │')
         print('│ 3. 🥇 Leaderboard                     │')
         print('│ 4. ⚙️  Settings                        │')
-        print('│ 5. ❌ Logout                          │')
+        print('│ 5. 🎭 Cek Akun                        │')
+        print('│ 6. ❌ Logout                          │')
         print('│───────────────────────────────────────│')
         print('└───────────────────────────────────────┘')
 
@@ -29,12 +32,15 @@ def start_lobby():
             program_studi()
 
         elif masuk == '3' or masuk == 'Leaderboard'.lower:
-            print('Leaderboard')
-
+            leaderboard()
+            
         elif masuk == '4' or masuk == 'Settings'.lower:
             settings_menu()
-            
-        elif masuk == '5' or masuk == 'Logout'.lower:
+        
+        elif masuk == '5' or masuk == 'Cek Akun'.lower:
+            print('Cek Akun')
+
+        elif masuk == '6' or masuk == 'Logout'.lower:
             print('Anda telah keluar dari akun anda')
             break
         
