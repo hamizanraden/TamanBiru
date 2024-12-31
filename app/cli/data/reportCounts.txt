@@ -1,4 +1,5 @@
-raden: hai|1|
-tamanbiru: tutuss|1|tamanbiru
-A: wqwer|1|tamanbiru
-tamanbiru: hai|1|tamanbiru
+ilyas: tes|1|
+Q: Febri: Umm... Cuma ngetes|1|
+Febri: Halo|1|tamanbiru
+A: Iya bener febri|1|tamanbiru
+A: Hypertext Markup Language|1|tamanbiru

@@ -85,8 +85,7 @@ def chat_prodi(prodi, filename):
                         print('Nomor pesan tidak valid.')
                 except ValueError:
                     print('Input tidak valid.')
-
-                
+            
         elif pilihan == '5':
             print('Kembali ke menu utama...')
             break

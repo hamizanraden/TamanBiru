@@ -1,3 +1,7 @@
-tamanbiru,tamanbiru@upi.edu,tamanbiru
-rpl,rpl@upi.edu,123456
-admin,admin@upi.edu,admin
+tamanbiru,tamanbiru@upi.edu,tamanbiru,RPL,1,1234567890
+biru,biru@upi.edu,biru12
+Vicky,vicky@upi.edu,123123
+Akmal,akmal@upi.edu,123123,RPL,1,083139411231
+Aryo,aryo@upi.edu,123123,RPL,1,08989011081
+Firdan,Firdan@upi.edu,123213123,RPL,1,123123123
+Kodi,Kodi@upi.edu,123123,TEKKOM,1,12312312
