@@ -1,5 +1,7 @@
-ilyas: tes|1|
+ilyas: tes|2|,tamanbiru
 Q: Febri: Umm... Cuma ngetes|1|
 Febri: Halo|1|tamanbiru
 A: Iya bener febri|1|tamanbiru
 A: Hypertext Markup Language|1|tamanbiru
+Vicky: Aduh|1|tamanbiru
+tamanbiru: iya|1|tamanbiru

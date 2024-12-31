@@ -45,6 +45,7 @@ def chat_prodi(prodi, filename):
                 print('Nama atau pertanyaan tidak boleh kosong.')
 
         elif pilihan == '3':
+            from auth.login import nama_pegguna
             messages = read_chat(filename)
             if not messages:
                 print('\nBelum ada pertanyaan untuk dijawab.')
@@ -55,9 +56,10 @@ def chat_prodi(prodi, filename):
                 try:
                     question_idx = int(input('\nPilih nomor pertanyaan untuk dijawab: ')) - 1
                     if 0 <= question_idx < len(messages):
+                        
                         reply = input('Masukkan jawaban Anda: ')
                         if reply:
-                            write_chat(filename, f'A: {reply}')
+                            write_chat(filename, f' A:{nama_pegguna}: {reply}' )
                             print('Jawaban berhasil dikirim!')
                         else:
                             print('Jawaban tidak boleh kosong.')
