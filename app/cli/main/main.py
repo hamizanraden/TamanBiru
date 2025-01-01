@@ -23,24 +23,24 @@ def start_lobby():
         print('└───────────────────────────────────────┘')
 
 # user memilih menu
-        masuk = input('Pilih menu: ')
+        masuk = input('Pilih menu: ').lower()
 # kondisional untuk memilih menu
-        if masuk == '1' or masuk == 'Chat All'.lower:
+        if masuk == '1' or masuk == 'Chat All'.lower():
             chat_all()
 
-        elif masuk == '2' or masuk == 'Program Studi'.lower:
+        elif masuk == '2' or masuk == 'Program Studi'.lower():
             program_studi()
 
-        elif masuk == '3' or masuk == 'Leaderboard'.lower:
+        elif masuk == '3' or masuk == 'Leaderboard'.lower():
             leaderboard()
             
-        elif masuk == '4' or masuk == 'Settings'.lower:
+        elif masuk == '4' or masuk == 'Settings'.lower():
             settings_menu()
         
-        elif masuk == '5' or masuk == 'Cek Akun'.lower:
+        elif masuk == '5' or masuk == 'Cek Akun'.lower():
             print('Cek Akun')
 
-        elif masuk == '6' or masuk == 'Logout'.lower:
+        elif masuk == '6' or masuk == 'Logout'.lower():
             print('Anda telah keluar dari akun anda')
             break
         
