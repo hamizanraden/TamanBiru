@@ -1,6 +1,6 @@
 import os
+import re
 from auth.register import email_upi
-
 
 def reset_password(email):
     try:
@@ -11,18 +11,25 @@ def reset_password(email):
         with open('./app/cli/data/logindatabase.txt', 'r') as file:
             users = [line.strip().split(',') for line in file if ',' in line]
             for user in users:
-                if len(user) == 3 and user[1] == email:  # [name, email, password]
+                if len(user) == 6 and user[1] == email:  
                     print(f"Akun ditemukan untuk email: {email}")
                     print(f"Username: {user[0]}")
-                    new_password = input("Masukkan password baru (minimal 6 karakter): ").strip()
-                    
-                    if len(new_password) < 6:
-                        print("Password terlalu pendek. Coba lagi.")
+
+                    while True:
+                        new_password = input("Masukkan password baru (minimal 6 karakter, tanpa emoji): ").strip()
+
+                        if len(new_password) < 6:
+                            print("Password terlalu pendek. Coba lagi.")
+                            continue
+
+                        # Validasi karakter ilegal (termasuk emoji)
+                        if not re.match(r'^[\w!@#$%^&*()]+$', new_password):
+                            print("Password mengandung karakter ilegal atau emoji. Coba lagi.")
+                            continue
+
+                        update_password(email, new_password)
+                        print("Password berhasil diubah. Silakan login dengan password baru Anda.")
                         return
-                    
-                    update_password(email, new_password)
-                    print("Password berhasil diubah. Silakan login dengan password baru Anda.")
-                    return
 
         print("Email tidak ditemukan dalam database. Pastikan Anda telah mendaftar.")
     except Exception as e:
@@ -40,7 +47,7 @@ def update_password(email, new_password):
         updated_users = []
         for user in users:
             user_data = user.split(',')
-            if len(user_data) == 3 and user_data[1] == email:
+            if len(user_data) == 6 and user_data[1] == email:  # Format: name,email,password,prodi,semester,notelp
                 user_data[2] = new_password  # Update password
             updated_users.append(','.join(user_data))
 
@@ -51,7 +58,7 @@ def update_password(email, new_password):
 
 def forgot_password():
     print("== Lupa Password ==")
-    while True: 
+    while True:
         email = input("Masukkan email yang terdaftar (@upi.edu): ").strip()
         
         if email_upi(email):
