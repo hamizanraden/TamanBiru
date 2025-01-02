@@ -29,7 +29,6 @@ def start_login(name, password):
         except FileNotFoundError:
             print("Database tidak ditemukan. Silakan registrasi terlebih dahulu.")
             return
-            return
         except Exception as e:
             print(f"Terjadi kesalahan: {e}")
             return
@@ -42,11 +41,9 @@ def start_login(name, password):
             batas -= 1
             if batas > 0:
                 print(f"Username atau Password Anda salah. Kesempatan Anda {batas}x lagi!")
-                print(f"Username atau Password Anda salah. Kesempatan Anda {batas}x lagi!")
             else:
                 print("Kesempatan login Anda telah habis.")
                 from run import display_main_menu
-                print("Tekan Enter untuk kembali ke halaman login.")
                 print("Tekan Enter untuk kembali ke halaman login.")
                 input()
                 display_main_menu()
