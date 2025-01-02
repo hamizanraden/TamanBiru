@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath('./app/cli/chat/'))
 from chat_all import chat_all
 from chatProdi import program_studi
 from leaderBoard import leaderboard
+from CekAkun import cekAkun
 
 # tampilan halaman utama aplikasi
 def start_lobby():
@@ -31,8 +32,8 @@ def start_lobby():
             leaderboard()
             
         elif masuk == '4' or masuk == 'Cek Akun'.lower:
-            print('Cek Akun')
-            
+            cekAkun()
+
         elif masuk == '5' or masuk == 'Logout'.lower:
             print('Anda telah keluar dari akun anda')
             break

@@ -1,29 +1,23 @@
 from main.main import start_lobby
 from auth.register import access_register
 from auth.forgot import forgot_password
+from auth.share import set_nama_pengguna
 
-nama_pegguna = None 
 def start_login(name, password):
-    global nama_pegguna 
     batas = 3  
-
     while batas > 0:
         sukses = False
         try:
             with open('./app/cli/data/logindatabase.txt', 'r') as file:
                 for line in file:
-                    # Pastikan baris memiliki format yang benar
                     data = line.strip().split(',')
                     if len(data) != 6:  # Abaikan baris yang tidak sesuai format
                         continue
-                    
-                    # Ambil kolom sesuai urutan: name, email, password, prodi, semester, notelp
                     a, _, b, _, _, _ = data
                     if a == name and b == password:
                         sukses = True
-                        nama_pegguna = name
+                        set_nama_pengguna(name)  # Menyimpan nama pengguna menggunakan setter
                         break
-
         except FileNotFoundError:
             print("Database tidak ditemukan. Silakan registrasi terlebih dahulu.")
             return
@@ -45,8 +39,8 @@ def start_login(name, password):
                 print("Tekan Enter untuk kembali ke halaman login.")
                 input()
                 display_main_menu()
-                return  # Keluar dari fungsi
-            
+                return
+
             while True:
                 print("┌───────────────────୨ৎ──────────────────┐")
                 print("│  1. Coba Lagi     │ 2. Lupa Password  │")
