@@ -2,8 +2,10 @@ from main.main import start_lobby
 from auth.register import access_register
 from auth.forgot import forgot_password
 
+nama_pegguna = None 
 def start_login(name, password):
-    batas = 3
+    global nama_pegguna 
+    batas = 3  
 
     while batas > 0:
         sukses = False
@@ -19,6 +21,7 @@ def start_login(name, password):
                     a, _, b, _, _, _ = data
                     if a == name and b == password:
                         sukses = True
+                        nama_pegguna = name
                         break
 
         except FileNotFoundError:

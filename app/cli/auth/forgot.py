@@ -1,4 +1,5 @@
 import os
+import re
 from auth.register import email_upi
 
 def reset_password(email):
