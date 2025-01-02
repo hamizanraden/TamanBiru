@@ -1,9 +1,0 @@
-tamanbiru: aaa|1|tamanbiru
-Q: tamanbiru: testing 3|2|tamanbiru,Kodi
-Gassan: Titit|1|Kodi
-Vicky: Aduh|1|Kodi
-Kodi: e|1|Kodi
-Q: Kodi: tai|1|Kodi
-A: Kodi: parah|1|Kodi
-Kodi: bgsd|1|Kodi
-A: Kodi: Jaringan itu internet|1|Kodi

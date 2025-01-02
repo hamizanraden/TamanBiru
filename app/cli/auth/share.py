@@ -1,4 +1,4 @@
-nama_pengguna = None  # Inisialisasi variabel global
+nama_pengguna = None
 
 def set_nama_pengguna(name):
     global nama_pengguna

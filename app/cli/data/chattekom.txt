@@ -1,4 +1,0 @@
-Q: Vicky: Apa itu tekkom? | Jawaban: Tekkom itu Teknik Komputer
-Q: Kodi: Apa itu jaringan?
-	A: Kodi: Jaringan itu internet
-	A: Kodi: bukan, jarinhan itu relasi data

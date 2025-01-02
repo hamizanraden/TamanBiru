@@ -7,7 +7,7 @@ from auth.register import access_register
 def logout():
     print("\nAnda telah berhasil logout.")
     print("Mengembalikan Anda ke menu utama...\n")
-    display_main_menu()#agar pas logout pada main, akan break, langsung kesini
+    display_main_menu()
 
 def display_main_menu():
     while True:

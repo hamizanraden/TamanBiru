@@ -8,11 +8,10 @@ def getUser():
         return file.readlines()
     
 def displayLoggedInUser(username):
-    users = getUser()  # Ambil semua data user
-    
+    users = getUser()
     for user in users:
         user_info = user.strip().split(',')
-        if user_info[0] == username:  # Cek apakah username cocok
+        if user_info[0] == username:
             print(f"\nInformasi Akun:")
             print(f"Username : {user_info[0]}")
             print(f"Email    : {user_info[1]}")
@@ -35,10 +34,9 @@ def cekAkun():
         print('│ 1. 📜 Tampilkan Informasi Akun            │')
         print('│ 2. 🔙 Kembali                             │')
         print('└───────────────────────────────────────────┘')
-        pilihan = input("Pilih menu: ")
+        pilihan = input("Pilih menu: (1/2)")
         
-        if pilihan == "1" or pilihan == "Tampilkan Informasi Akun".lower():
-            # Panggil displayLoggedInUser dengan username yang sedang login
+        if pilihan == "1" :
             displayLoggedInUser(nama_pengguna)
         elif pilihan == "2":
             print('Kembali ke menu utama...')

@@ -11,11 +11,8 @@ def settings_menu():
         print('│ 4. 🌐 Language                        │')
         print('│ 5. 🔙 Kembali                         │')
         print('└───────────────────────────────────────┘')
-    
-    # User input
         choice = input("Pilih menu: ")
 
-    # Kondisional untuk memilih menu
         if choice == "1":
             print("Dark Mode aktif")
         elif choice == "2":

@@ -11,12 +11,12 @@ def start_login(name, password):
             with open('./app/cli/data/logindatabase.txt', 'r') as file:
                 for line in file:
                     data = line.strip().split(',')
-                    if len(data) != 6:  # Abaikan baris yang tidak sesuai format
+                    if len(data) != 6:
                         continue
                     a, _, b, _, _, _ = data
                     if a == name and b == password:
                         sukses = True
-                        set_nama_pengguna(name)  # Menyimpan nama pengguna menggunakan setter
+                        set_nama_pengguna(name)
                         break
         except FileNotFoundError:
             print("Database tidak ditemukan. Silakan registrasi terlebih dahulu.")
