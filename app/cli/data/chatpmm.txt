@@ -1,2 +1,0 @@
-Q: Admin: test 12
-A: return test 

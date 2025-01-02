@@ -17,9 +17,9 @@ def write_jawaban(filename, message, question_idx):
         lines = file.readlines()
 
     if question_idx < len(lines):
-        lines.insert(question_idx + 1, f'\t{message}\n')  # Jawaban langsung di bawah pertanyaan
+        lines.insert(question_idx + 1, f'\t{message}\n')
     else:
-        lines.append(f'\t{message}\n')  # Jika indeks tidak valid, tambahkan di akhir
+        lines.append(f'\t{message}\n')
 
     with open(filename, 'w', encoding='utf-8') as file:
         file.writelines(lines)
@@ -38,18 +38,18 @@ def chat_prodi(prodi, filename):
 
         pilihan = input('Pilih menu: ')
 
-        if pilihan == '1':  # Lihat Pertanyaan
+        if pilihan == '1':
             messages = read_chat(filename)
             if not messages:
                 print('\nBelum ada pertanyaan.')
             else:
                 print('\nDaftar Pertanyaan:')
                 for idx, message in enumerate(messages, start=1):
-                    level = message.count('\t')  # Indentasi jawaban
+                    level = message.count('\t')
                     indent = '   ' * level
                     print(f'{idx}. {indent}{message.strip()}')
 
-        elif pilihan == '2':  # Ajukan Pertanyaan
+        elif pilihan == '2':
             nama_pengguna = get_nama_pengguna()
             if not nama_pengguna:
                 print('Nama pengguna tidak valid.')
@@ -62,7 +62,7 @@ def chat_prodi(prodi, filename):
             else:
                 print('Pertanyaan tidak boleh kosong. Silakan coba lagi.')
 
-        elif pilihan == '3':  # Balas Pertanyaan
+        elif pilihan == '3':
             nama_pengguna = get_nama_pengguna()
             if not nama_pengguna:
                 print('Nama pengguna tidak valid.')
@@ -74,7 +74,7 @@ def chat_prodi(prodi, filename):
             else:
                 print('\nDaftar Pertanyaan:')
                 for idx, message in enumerate(messages, start=1):
-                    level = message.count('\t')  # Indentasi jawaban
+                    level = message.count('\t')
                     indent = '   ' * level
                     print(f'{idx}. {indent}{message.strip()}')
 
@@ -92,7 +92,7 @@ def chat_prodi(prodi, filename):
                 except ValueError:
                     print('Masukkan angka yang valid.')
 
-        elif pilihan == '4':  # Laporkan Pesan
+        elif pilihan == '4':
             nama_pengguna = get_nama_pengguna()
             if not nama_pengguna:
                 print('Nama pengguna tidak valid.')
@@ -104,7 +104,7 @@ def chat_prodi(prodi, filename):
             else:
                 print('\nPesan Tersimpan:')
                 for idx, message in enumerate(messages, start=1):
-                    level = message.count('\t')  # Indentasi jawaban
+                    level = message.count('\t')
                     indent = '   ' * level
                     print(f'{idx}. {indent}{message.strip()}')
 
@@ -124,7 +124,7 @@ def chat_prodi(prodi, filename):
                 except ValueError:
                     print('Input tidak valid.')
 
-        elif pilihan == '5':  # Kembali ke Menu Utama
+        elif pilihan == '5': 
             print('Kembali ke menu utama...')
             break
         else:
