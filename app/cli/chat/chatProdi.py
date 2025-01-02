@@ -99,8 +99,11 @@ def chat_prodi(prodi, filename):
                     index = int(input('\nMasukkan nomor pesan yang ingin dilaporkan: '))
                     if 1 <= index <= len(messages):
                         reported_message = messages[index - 1].strip()
-                        count = report_message(reported_message, reporter=nama_pegguna, chat_file=filename)
-                        print(f'Pesan berhasil dilaporkan!')
+                        result = report_message(reported_message, reporter=nama_pegguna)
+                        if result == "already_reported":
+                            print("Anda sudah melaporkan pesan ini.")
+                        else:
+                            print("Pesan berhasil dilaporkan")
                     else:
                         print('Nomor pesan tidak valid.')
                 except ValueError:

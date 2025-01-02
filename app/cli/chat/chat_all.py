@@ -40,7 +40,7 @@ def chat_all():
                 write_chat(f'{nama_pegguna}: {content}')
                 print('Pesan berhasil dikirim!')
             else:
-                print('Nama atau pesan tidak boleh kosong.')
+                print('Pesan tidak boleh kosong.')
 
         elif pilihan == '3':
             from auth.login import nama_pegguna  # Pastikan nama pengguna tersedia
@@ -56,8 +56,11 @@ def chat_all():
                     index = int(input('\nMasukkan nomor pesan yang ingin dilaporkan: '))
                     if 1 <= index <= len(messages):
                         reported_message = messages[index - 1].strip()
-                        count = report_message(reported_message, reporter=nama_pegguna)
-                        print(f'Pesan berhasil dilaporkan!')
+                        result = report_message(reported_message, reporter=nama_pegguna)
+                        if result == "already_reported":
+                            print("Anda sudah melaporkan pesan ini.")
+                        else:
+                            print("Pesan berhasil dilaporkan")
                     else:
                         print('Nomor pesan tidak valid.')
                 except ValueError:
