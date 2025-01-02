@@ -20,9 +20,11 @@ def access_register(option):
         while True:
             # Validasi Username
             while True:
-                name = input('Masukkan Username baru (min 3 karakter): ').strip()
+                name = input('Masukkan Username baru (min 3 karakter dan maks 20 karakter): ').strip()
                 if len(name) < 3:
                     print("Username harus minimal 3 karakter. Coba lagi.")
+                elif len(name) > 20:
+                    print("Username maksimal 20 karakter. Coba lagi.")
                 elif not name.isalpha():
                     print("Username hanya boleh berisi huruf. Coba lagi.")
                 elif ',' in name:
