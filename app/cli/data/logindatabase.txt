@@ -5,3 +5,9 @@ Akmal,akmal@upi.edu,123123,RPL,1,083139411231
 Aryo,aryo@upi.edu,123123,RPL,1,08989011081
 Firdan,Firdan@upi.edu,123213123,RPL,1,123123123
 Kodi,Kodi@upi.edu,123123,TEKKOM,1,12312312
+Vicky,vicky@upi.edu,123123
+Akmal,akmal@upi.edu,123123,RPL,1,083139411231
+Aryo,aryo@upi.edu,123123,RPL,1,08989011081
+Firdan,Firdan@upi.edu,123213123,RPL,1,123123123
+Kodi,Kodi@upi.edu,123123,TEKKOM,1,12312312
+Gassan,gassan@upi.edu,123123,RPL,3,123213123

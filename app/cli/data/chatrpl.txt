@@ -5,3 +5,10 @@ A: User experience adalah bagaimana seorang pengguna merasakan interaksi dan pen
 A: Iya bener febri
 Q: tamanbiru: halo test
 tamanbiru: iya 
+Q: tamanbiru: Testing 2
+	 A:tamanbiru: mbee
+	 A:tamanbiru: testing jawab 2
+	 A:tamanbiru: testing jawab
+Q: tamanbiru: testing 3
+Q: Kodi: tai
+	A: Kodi: parah

@@ -25,8 +25,9 @@ def save_reports(reports):
     """Save the reports dictionary to file."""
     with open(Lapor, 'w', encoding='utf-8') as file:
         for message, data in reports.items():
-            reporters = ','.join(data['reporters'])
-            file.write(f'{message}|{data["count"]}|{reporters}\n')
+            # Ensure all reporters are strings
+            reporters = [str(reporter) for reporter in data['reporters'] if isinstance(reporter, str)]
+            file.write(f'{message}|{data["count"]}|{",".join(reporters)}\n')
 
 def report_message(message, reporter, chat_file='./app/cli/data/chatAll.txt', limit=3):
     """
@@ -42,11 +43,10 @@ def report_message(message, reporter, chat_file='./app/cli/data/chatAll.txt', li
     # Initialize report entry if not exists
     if normalized_message not in reports:
         reports[normalized_message] = {'count': 0, 'reporters': []}
-
+    
     # Check if the reporter already reported this message
     if reporter in reports[normalized_message]['reporters']:
-        print("Anda sudah melaporkan pesan ini.")
-        return reports[normalized_message]['count']
+        return 'already_reported'
 
     # Update report count and add reporter
     reports[normalized_message]['count'] += 1
@@ -58,7 +58,7 @@ def report_message(message, reporter, chat_file='./app/cli/data/chatAll.txt', li
         del reports[normalized_message]  # Remove from reports
 
     save_reports(reports)
-    return reports.get(normalized_message, {}).get('count', 0)
+    return 'success'
 
 def delete_message(message, chat_file):
     normalized_message = message.strip()

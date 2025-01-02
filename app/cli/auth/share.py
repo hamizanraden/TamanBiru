@@ -1,8 +1,8 @@
-nama_pegguna = None  # Inisialisasi variabel global
+nama_pengguna = None  # Inisialisasi variabel global
 
 def set_nama_pengguna(name):
-    global nama_pegguna
-    nama_pegguna = name
+    global nama_pengguna
+    nama_pengguna = name
 
 def get_nama_pengguna():
-    return nama_pegguna
+    return nama_pengguna

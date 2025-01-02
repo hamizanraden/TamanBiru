@@ -23,6 +23,25 @@ def reset_password(email):
                     update_password(email, new_password)
                     print("Password berhasil diubah. Silakan login dengan password baru Anda.")
                     return
+                if len(user) == 6 and user[1] == email:  
+                    print(f"Akun ditemukan untuk email: {email}")
+                    print(f"Username: {user[0]}")
+
+                    while True:
+                        new_password = input("Masukkan password baru (minimal 6 karakter, tanpa emoji): ").strip()
+
+                        if len(new_password) < 6:
+                            print("Password terlalu pendek. Coba lagi.")
+                            continue
+
+                        # Validasi karakter ilegal (termasuk emoji)
+                        if not re.match(r'^[\w!@#$%^&*()]+$', new_password):
+                            print("Password mengandung karakter ilegal atau emoji. Coba lagi.")
+                            continue
+
+                        update_password(email, new_password)
+                        print("Password berhasil diubah. Silakan login dengan password baru Anda.")
+                        return
 
         print("Email tidak ditemukan dalam database. Pastikan Anda telah mendaftar.")
     except Exception as e:
