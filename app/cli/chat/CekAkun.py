@@ -34,7 +34,7 @@ def cekAkun():
         print('│ 1. 📜 Tampilkan Informasi Akun            │')
         print('│ 2. 🔙 Kembali                             │')
         print('└───────────────────────────────────────────┘')
-        pilihan = input("Pilih menu: (1/2)")
+        pilihan = input("Pilih menu (1/2): ")
         
         if pilihan == "1" :
             displayLoggedInUser(nama_pengguna)
