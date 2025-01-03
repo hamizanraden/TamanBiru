@@ -1,4 +1,5 @@
 import os
+import re
 
 def start_register(name, email, password, prodi, semester, notelp):
     try:
@@ -8,7 +9,7 @@ def start_register(name, email, password, prodi, semester, notelp):
         print('Registrasi Berhasil')
     except Exception as e:
         print(f"Terjadi kesalahan saat menyimpan data: {e}")
-        access_register('start_register')
+
 def email_upi(email):
     return email.endswith('@upi.edu')
 
@@ -39,6 +40,8 @@ def access_register(option):
                     print("Email harus menggunakan @upi.edu. Coba lagi.")
                 elif ',' in email:
                     print("Email tidak boleh mengandung koma (,). Coba lagi.")
+                elif not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
+                    print("Email mengandung karakter ilegal atau emoji. Coba lagi.")
                 else:
                     break
 
@@ -89,21 +92,9 @@ def access_register(option):
             # Cek Username Unik
             try:
                 with open('./app/cli/data/logindatabase.txt', 'r') as file:
-                    existing_users = []
-                    existing_emails = []
-                    
-                    for line in file:
-                        if ',' in line:  # Pastikan format baris valid
-                            data = line.strip().split(',')
-                            if len(data) >= 2:  # Pastikan baris memiliki setidaknya username dan email
-                                existing_users.append(data[0])  # Username
-                                existing_emails.append(data[1])  # Email
-
+                    existing_users = [line.strip().split(',')[0] for line in file if ',' in line]
                     if name in existing_users:
                         print("Username sudah terdaftar. Silahkan ke menu Login.")
-                        return
-                    if email in existing_emails:
-                        print("Email sudah terdaftar. Silahkan ke menu Login.")
                         return
             except FileNotFoundError:
                 print("Database tidak ditemukan. Membuat database baru.")
