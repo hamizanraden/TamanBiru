@@ -11,18 +11,6 @@ def reset_password(email):
         with open('./app/cli/data/logindatabase.txt', 'r') as file:
             users = [line.strip().split(',') for line in file if ',' in line]
             for user in users:
-                if len(user) == 6 and user[1] == email:
-                    print(f"Akun ditemukan untuk email: {email}")
-                    print(f"Username: {user[0]}")
-                    new_password = input("Masukkan password baru (minimal 6 karakter): ").strip()
-
-                    if len(new_password) < 6:
-                        print("Password terlalu pendek. Coba lagi.")
-                        return
-
-                    update_password(email, new_password)
-                    print("Password berhasil diubah. Silakan login dengan password baru Anda.")
-                    return
                 if len(user) == 6 and user[1] == email:  
                     print(f"Akun ditemukan untuk email: {email}")
                     print(f"Username: {user[0]}")
