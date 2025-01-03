@@ -92,9 +92,21 @@ def access_register(option):
             # Cek Username Unik
             try:
                 with open('./app/cli/data/logindatabase.txt', 'r') as file:
-                    existing_users = [line.strip().split(',')[0] for line in file if ',' in line]
+                    existing_users = []
+                    existing_emails = []
+
+                    for line in file:
+                        if ',' in line:  # Pastikan format baris valid
+                            data = line.strip().split(',')
+                            if len(data) >= 2:  # Pastikan baris memiliki setidaknya username dan email
+                                existing_users.append(data[0])  # Username
+                                existing_emails.append(data[1])  # Email
+
                     if name in existing_users:
                         print("Username sudah terdaftar. Silahkan ke menu Login.")
+                        return
+                    if email in existing_emails:
+                        print("Email sudah terdaftar. Silahkan ke menu Login.")
                         return
             except FileNotFoundError:
                 print("Database tidak ditemukan. Membuat database baru.")
